@@ -9,7 +9,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        exo: ["Exo", "sans-serif"],
+        "mono-roboto": ["Roboto Mono", "monospace"],
+      },
       colors: {
+        brand: {
+          primary: "#1E40AF",
+          secondary: "#3B82F6",
+          accent: "#F59E0B",
+          dark: "#0F172A",
+          navy: "#1E3A8A",
+          light: "#F8FAFC",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -48,6 +60,9 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      animation: {
+        "gradient-shift": "gradientShift 8s ease infinite",
       },
     },
   },

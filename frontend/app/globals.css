@@ -50,10 +50,49 @@
 }
 
 @layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+/* Font families */
+.font-exo { font-family: 'Exo', sans-serif; }
+.font-mono-roboto { font-family: 'Roboto Mono', monospace; }
+
+/* Animated gradient hero */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 30%, #1E40AF 55%, #0F172A 80%);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient {
+    animation: none;
+    background: #0F172A;
+  }
   * {
-    @apply border-border;
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+}
+
+/* Scroll snap (opt-in class) */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+.snap-section {
+  scroll-snap-align: start;
+}
+
+/* Geometric accent */
+.geo-accent {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
 }
